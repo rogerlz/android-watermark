@@ -2,3 +2,11 @@
 /local.properties
 /.idea/workspace.xml
 .DS_Store
+*.apk
+*.ap_
+.gradle/
+build/
+bin/
+gen/
+*.log
+*.dex
