@@ -66,7 +66,7 @@ public class Page2 extends Activity {
         });
     }
 
-    public static Bitmap addWaterMark(String ImageSrcPath, String WatermarkPath) {
+    private static Bitmap addWaterMark(String ImageSrcPath, String WatermarkPath) {
         BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
         bitmapOptions.inSampleSize = 1;
         boolean imageSet = false;

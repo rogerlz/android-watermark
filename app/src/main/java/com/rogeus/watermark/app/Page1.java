@@ -29,7 +29,7 @@ public class Page1 extends Activity {
 
     private static final String PREFS = "prefs";
     private static final String PREF_NAME = "wmFile";
-    SharedPreferences mSharedPreferences;
+    private SharedPreferences mSharedPreferences;
 
     private static final int CAMERA_PIC_REQUEST = 1337;
 
@@ -83,20 +83,12 @@ public class Page1 extends Activity {
         if (resultCode == RESULT_OK) {
             if (requestCode == SELECT_PICTURE) {
                 Uri selectedImageUri = data.getData();
-
-
-//                selectedWatermarkPath = getPath(selectedImageUri); // from gallery
-//                if(selectedImagePath == null) {
-//                    selectedWatermarkPath = selectedImageUri.getPath(); // from file manager
-//                }
-
                 selectedWatermarkPath = getRealPathFromURI(selectedImageUri);
-
                 TextView txtWatermarkPath = (TextView) findViewById(R.id.txtWatermarkPath);
                 txtWatermarkPath.setText("path: "+ selectedWatermarkPath);
                 SharedPreferences.Editor e = mSharedPreferences.edit();
                 e.putString(PREF_NAME, selectedWatermarkPath);
-                e.commit();
+                e.apply();
             } else if (requestCode == CAMERA_PIC_REQUEST) {
                 selectedImagePath = mImageCaptureUri.getPath();
                 final Context context = this;
