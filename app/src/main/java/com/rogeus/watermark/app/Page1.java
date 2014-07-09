@@ -1,11 +1,13 @@
 package com.rogeus.watermark.app;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -58,6 +60,7 @@ public class Page1 extends Activity {
 
         ((Button) findViewById(R.id.btnNext01))
                 .setOnClickListener(new View.OnClickListener() {
+                    @TargetApi(Build.VERSION_CODES.CUPCAKE)
                     @Override
                     public void onClick(View view) {
                         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
